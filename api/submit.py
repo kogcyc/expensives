@@ -25,8 +25,8 @@ class handler(BaseHTTPRequestHandler):
         key = datetime.utcnow().strftime("%Y%m%d%H%M")
         value = f"{x_letter}{num_value}"
 
-        kv_url = os.environ.get("KV_URL")
-        kv_token = os.environ.get("KV_REST_API_READ_ONLY_TOKEN")
+        kv_url = os.environ.get("rurl")
+        kv_token = os.environ.get("rtoken")
         if not kv_url or not kv_token:
             self.send_response(500)
             self.send_header('Content-type', 'text/plain')
