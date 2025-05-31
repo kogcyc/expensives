@@ -13,7 +13,7 @@ class handler(BaseHTTPRequestHandler):
         num_value = data.get('num', [None])[0]
 
         allowed_letters = ['B', 'L', 'D', 'C', 'U', 'T', 'R', 'M']
-        allowed_nums = [f"{i:03d}" for i in range(10, 1000, 10)]
+        allowed_nums = [f"{i:03d}" for i in range(1, 1000)]
 
         if x_letter not in allowed_letters or num_value not in allowed_nums:
             self.send_response(400)
