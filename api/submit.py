@@ -12,7 +12,7 @@ class handler(BaseHTTPRequestHandler):
         x_letter = data.get('x', [None])[0]
         num_value = data.get('num', [None])[0]
 
-        allowed_letters = ['B', 'L', 'D', 'C', 'U', 'T', 'R', 'M']
+        allowed_letters = ['B', 'L', 'D', 'C', 'U', 'T', 'R', 'M', 'H']
         allowed_nums = [f"{i:03d}" for i in range(1, 1000)]
 
         if x_letter not in allowed_letters or num_value not in allowed_nums:
@@ -22,7 +22,7 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write(b"Invalid input")
             return
 
-        key = datetime.utcnow().strftime("%Y%m%d%H%M")
+        key = datetime.utcnow().strftime("%m%d")
         value = f"{x_letter}{num_value}"
 
         kv_url = os.environ.get("rurl")
